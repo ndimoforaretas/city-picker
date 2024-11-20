@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { CityDataService } from './_services/city-data.service';
 import { CitySelectorComponent } from './city-selector/city-selector.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, CitySelectorComponent],
+  imports: [RouterOutlet, NavComponent, CitySelectorComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

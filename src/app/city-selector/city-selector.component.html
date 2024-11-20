@@ -8,13 +8,3 @@
 
     <button type="submit" [disabled]="cityForm.invalid">Submit</button>
 </form>
-
-
-@if(cityData){
-<div>
-    <h2>City Data for {{ cityData.country }}</h2>
-    <p><strong>Place Name:</strong> {{ cityData.places[0]['place name'] }}</p>
-    <p><strong>State:</strong> {{ cityData.places[0]['state'] }}</p>
-
-</div>
-}
