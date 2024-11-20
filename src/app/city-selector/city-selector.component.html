@@ -1,10 +1,11 @@
-<form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
-    <label for="city">Select a City:</label>
-
-    <select id="city" formControlName="city">
-        <option value="" disabled>Select a city</option>
-        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-    </select>
-
-    <button type="submit" [disabled]="cityForm.invalid">Submit</button>
+<form [formGroup]="cityForm" (ngSubmit)="onSubmit()" class="form-inline">
+    <div class="form-group mb-2">
+        <label for="city" class="mr-2">Select a City:</label>
+        <select id="city" formControlName="city" class="form-control">
+            <option value="" disabled>Select a city</option>
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+    </div>
+    <button type="submit" [disabled]="cityForm.invalid"
+        class="btn btn-primary mb-2 ml-2">Submit</button>
 </form>
