@@ -1,0 +1,20 @@
+<form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+    <label for="city">Select a City:</label>
+
+    <select id="city" formControlName="city">
+        <option value="" disabled>Select a city</option>
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+
+    <button type="submit" [disabled]="cityForm.invalid">Submit</button>
+</form>
+
+
+@if(cityData){
+<div>
+    <h2>City Data for {{ cityData.country }}</h2>
+    <p><strong>Place Name:</strong> {{ cityData.places[0]['place name'] }}</p>
+    <p><strong>State:</strong> {{ cityData.places[0]['state'] }}</p>
+
+</div>
+}

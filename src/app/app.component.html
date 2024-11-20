@@ -1,36 +1,20 @@
-<h1>{{title}}</h1>
+<app-nav></app-nav>
 
-<!--
-- Expected city data from API:
-{
-    "post code": "10245",
-    "country": "Germany",
-    "country abbreviation": "DE",
-    "places": [
-        {
-            "place name": "Berlin Friedrichshain",
-            "longitude": "13.4",
-            "state": "Berlin",
-            "state abbreviation": "BE",
-            "latitude": "52.5167"
-        }
-    ]
-}
+<div class="container" style="margin-top: 100px;">
+  <app-city-selector (citySelected)="onCitySelected($event)"></app-city-selector>
 
-- Output:
-  - City: Berlin Friedrichshain
-  - State: Berlin
-  - Country: Germany
+  <div *ngIf="city; else noCity">
+    <h2>City: {{ city.places[0]['place name'] }}</h2>
+    <h2>State: {{ city.places[0].state }}</h2>
+    <h2>Country: {{ city.country }}</h2>
+  </div>
 
-
--->
-
-<div>
-  @if(city){
-  <h2>City: {{city.places[0]['place name']}}</h2>
-  <h2>State: {{city.places[0].state}}</h2>
-  <h2>Country: {{city.country}}</h2>
-  }
-  <h2>No city found</h2>
-
+  <ng-template #noCity>
+    <div *ngIf="errorMessage">
+      <p class="error">{{ errorMessage }}</p>
+    </div>
+    <div *ngIf="!errorMessage">
+      <h2>No city selected</h2>
+    </div>
+  </ng-template>
 </div>
